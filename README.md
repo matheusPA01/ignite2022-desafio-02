@@ -22,7 +22,7 @@
   Para visualizar o layout completo: <a href="https://www.figma.com/file/gJR0YyOD2UgHcjFde1WS2S/Coffee-Delivery-(Copy)"> Figma.
 </h4>
 
-## ⚙️ Funcionalidades - Work in Process
+## ⚙️ Funcionalidades - WIP
 
 <h4>
   ✔️ Página Home <br>
