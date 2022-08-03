@@ -42,9 +42,9 @@
 <h4>
   React <br>
   TypeScript <br>
-  Styled Components
-  React Router DOM
-  Phosphoricons React
+  Styled Components <br>
+  React Router DOM <br>
+  Phosphoricons React <br>
 </h4>
 
 ## 🧭 Como usar
