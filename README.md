@@ -19,7 +19,7 @@
 - Exibir o total de itens no carrinho no Header
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
-  Para visualizar o layout completo: <a href="https://www.figma.com/file/gJR0YyOD2UgHcjFde1WS2S/Coffee-Delivery-(Copy)"> Figma.
+  Para visualizar o layout completo: <a href="https://www.figma.com/file/gJR0YyOD2UgHcjFde1WS2S/Coffee-Delivery-(Copy)"> Figma. <a/>
 </h4>
 
 ## ⚙️ Funcionalidades - WIP
