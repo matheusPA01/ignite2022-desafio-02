@@ -15,6 +15,8 @@ const ItemColorVariants = {
 
 export const HomeContainer = styled.main`
   padding: 2rem 10rem;
+  max-width: 90rem;
+  margin: 0 auto;
 
   margin-top: calc(5.875rem - 4rem);
 `
@@ -126,6 +128,11 @@ export const CoffeeTags = styled.div`
 export const Coffees = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  &::after {
+    content: "";
+    width: 34rem;
+  }
 
   @media (min-width: 1500px) {
     div {

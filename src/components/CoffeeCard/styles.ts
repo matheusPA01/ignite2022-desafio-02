@@ -73,12 +73,19 @@ export const CoffeeBuyActions = styled.div`
   button {
     background: ${(props) => props.theme["purple-500"]};
     color: ${(props) => props.theme.white};
+
     border: none;
     padding: 0.5rem;
     border-radius: 6px;
 
     display: flex;
     cursor: pointer;
+
+    transition: background 0.25s;
+
+    &:hover {
+      background: ${(props) => props.theme["purple-300"]};
+    }
   }
 `
 

@@ -29,18 +29,10 @@ export function Home() {
   function filterCoffeeByCategory(event: any) {
     let coffeeType = event.target.value
 
-    // const filterCoffeeCategory = () => {
-    //   for (let x = 0; x < 3; x++) {
-    //     coffees.filter(coffee => coffee.categories[x] == coffeeType)
-    //   }
-    // }
-
-    const filterCoffeeCategory = coffees.filter(coffee => coffee.categories[0] == coffeeType ||
-      coffee.categories[1] == coffeeType || coffee.categories[2] == coffeeType
-    )
+    const filterCoffeeByCategory = coffees.filter(coffee => coffee.categories.some(category => category == coffeeType))
 
     if (coffeeType != 'all') {
-      setCoffeeList(filterCoffeeCategory)
+      setCoffeeList(filterCoffeeByCategory)
     } else {
       setCoffeeList(coffees)
     }
