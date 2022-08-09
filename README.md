@@ -26,13 +26,12 @@
 
 <h4>
   ✔️ Página Home <br>
-  ❌ Página de Checkout <br>
+  ✔️ Página de Checkout <br>
   ❌ Página de sucesso <br>
   ✔️ Filtrar café por categoria <br>
   ❌ Adicionar ao carrinho <br>
   ❌ Adicionar uma quantidade específicas de itens no carrinho <br>
   ❌ Aumentar ou remover a quantidade de itens no carrinho <br>
-  ❌ Formulário para o usuário preencher o seu endereço <br>
   ❌ Exibir o total de itens no carrinho no Header <br>
   ❌ Exibir o valor total da soma de itens no carrinho multiplicados pelo valor <br>
 </h4>
