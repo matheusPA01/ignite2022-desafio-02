@@ -27,7 +27,7 @@
 <h4>
   ✔️ Página Home <br>
   ✔️ Página de Checkout <br>
-  ❌ Página de sucesso <br>
+  ✔️ Página de Success <br>
   ✔️ Filtrar café por categoria <br>
   ❌ Adicionar ao carrinho <br>
   ❌ Adicionar uma quantidade específicas de itens no carrinho <br>
