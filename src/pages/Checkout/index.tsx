@@ -39,7 +39,7 @@ export function Checkout() {
               <CheckoutFormGroup>
                 <CheckoutInput
                   placeholder="Número"
-                  inputType="text"
+                  inputType="number"
                   inputSize="small"
                 />
                 <CheckoutInput

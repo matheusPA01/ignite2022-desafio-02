@@ -146,12 +146,14 @@ export const CheckoutCartSummary = styled.div`
 export const CheckoutCartButton = styled.button`
   margin-top: 1.5rem;
   padding: 0.75rem 0.5rem;
+  border-radius: 6px;
   
   border: none;
   background: ${(props) => props.theme["yellow-300"]};
   color: ${(props) => props.theme.white};
 
   font-size: 0.875rem;
+  font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
 
