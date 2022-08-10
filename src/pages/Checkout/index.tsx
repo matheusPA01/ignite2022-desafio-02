@@ -1,14 +1,24 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import { coffees } from "../../assets/coffees/coffee";
 import { CartItems } from "../../components/CartItems";
 import { CheckoutInput } from "../../components/CheckoutInput";
+import { useCartContext } from "../../context/CartContext";
 import {
   CheckoutContainer, CheckoutForm, CheckoutFormAddress, CheckoutFormGroup,
   CheckoutFormPayment, CheckoutFormAddressTitle, CheckoutSelectedCoffees,
   CheckoutFormPaymentTitle, CheckoutCartContainer, CheckoutCartSummary, CheckoutCartButton
 } from "./styles";
 
-
 export function Checkout() {
+  const { cartItems } = useCartContext()
+
+  const sumCartTotalItems = cartItems.reduce((total, cartItem) => {
+    const coffee = coffees.find(coffee => coffee.id === cartItem.id)
+    return total + (coffee?.price || 0) * cartItem.quantity
+  }, 0)
+
+  const totalSummaryValue = sumCartTotalItems + 3.5
+
   return (
     <CheckoutContainer>
       <form>
@@ -79,17 +89,17 @@ export function Checkout() {
               </CheckoutFormPaymentTitle>
 
               <div>
-                <button>
+                <button type="button">
                   <span><CreditCard size={16} /></span>
                   Cartão de Crédito
                 </button>
 
-                <button>
+                <button type="button">
                   <span><Bank size={16} /></span>
                   Cartão de Débito
                 </button>
 
-                <button>
+                <button type="button">
                   <span><Money size={16} /></span>
                   Dinheiro
                 </button>
@@ -102,13 +112,14 @@ export function Checkout() {
             <h3>Cafés Selecionados</h3>
 
             <CheckoutCartContainer>
-              <CartItems />
-              <CartItems />
+              {cartItems.map(item => (
+                <CartItems key={item.id} {...item} />
+              ))}
 
               <CheckoutCartSummary>
                 <div>
                   <p>Total de itens</p>
-                  <p>R$ 29.70</p>
+                  {`R$ ${sumCartTotalItems.toFixed(2)}`}
                 </div>
 
                 <div>
@@ -118,7 +129,7 @@ export function Checkout() {
 
                 <div>
                   <strong>Total</strong>
-                  <strong>R$ 33.20</strong>
+                  <strong>{`R$ ${totalSummaryValue.toFixed(2)}`}</strong>
                 </div>
 
                 <CheckoutCartButton>

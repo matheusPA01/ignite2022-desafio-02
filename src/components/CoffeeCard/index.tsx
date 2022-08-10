@@ -1,7 +1,8 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 import { CoffeeType } from "../../assets/coffees/coffee";
+import { useCartContext } from "../../context/CartContext";
 import {
-  CardContainer, CoffeeBuy, CoffeeBuyActions, CoffeeCategory,
+  CardContainer, CoffeeAddToCart, CoffeeBuy, CoffeeBuyActions, CoffeeCategory,
   CoffeeCategoryContainer,
   CoffeeCounter, CoffeeDescription, CoffeeName, CoffeePrice
 } from "./styles";
@@ -12,6 +13,10 @@ interface CoffeeProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeProps) {
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeItemCart } = useCartContext()
+
+  const quantity = getItemQuantity(coffee.id)
+
   return (
     <CardContainer>
       <img src={coffee.image} />
@@ -42,18 +47,18 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
 
         <CoffeeBuyActions>
           <CoffeeCounter>
-            <span>
+            <button onClick={() => decreaseCartQuantity(coffee.id)}>
               <Minus />
-            </span>
-            <p>1</p>
-            <span>
+            </button>
+            <p>{quantity}</p>
+            <button onClick={() => increaseCartQuantity(coffee.id)}>
               <Plus />
-            </span>
+            </button>
           </CoffeeCounter>
 
-          <button>
+          <CoffeeAddToCart onClick={() => increaseCartQuantity(coffee.id)}>
             <ShoppingCartSimple weight={"fill"} size={22} />
-          </button>
+          </CoffeeAddToCart>
         </CoffeeBuyActions>
       </CoffeeBuy>
     </CardContainer>

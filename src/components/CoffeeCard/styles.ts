@@ -69,23 +69,23 @@ export const CoffeeBuyActions = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+`
 
-  button {
-    background: ${(props) => props.theme["purple-500"]};
-    color: ${(props) => props.theme.white};
+export const CoffeeAddToCart = styled.button`
+  background: ${(props) => props.theme["purple-500"]};
+  color: ${(props) => props.theme.white};
 
-    border: none;
-    padding: 0.5rem;
-    border-radius: 6px;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 6px;
 
-    display: flex;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
 
-    transition: background 0.25s;
+  transition: background 0.25s;
 
-    &:hover {
-      background: ${(props) => props.theme["purple-300"]};
-    }
+  &:hover {
+    background: ${(props) => props.theme["purple-300"]};
   }
 `
 
@@ -96,10 +96,14 @@ export const CoffeeCounter = styled.div`
   display: flex;
   gap: 0.25rem;
 
-  span {
+  button {
     color: ${(props) => props.theme["purple-500"]};
     cursor: pointer;
+    
     display: flex;
+
+    border: none;
+    background: transparent;
   }
 
   p {

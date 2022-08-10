@@ -8,6 +8,10 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
 
+  img {
+    display: flex;
+  }
+
   div {
     display: flex;
   }
@@ -36,6 +40,36 @@ export const CurrentLocation = styled(HeaderActions)`
 
 export const HeaderCart = styled(HeaderActions)`
   background: ${(props) => props.theme["yellow-100"]};
-  color: ${(props) => props.theme["yellow-500"]};
-  cursor: pointer;
+  position: relative;
+
+  a {
+    display: flex;
+    color: ${(props) => props.theme["yellow-500"]};
+  }
+`
+
+export const HeaderCartCounter = styled.div`
+  background: ${(props) => props.theme["yellow-500"]};
+  color: ${(props) => props.theme.white};
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+    
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  transform: translate(25%, -25%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin-top: 0.1rem; // align number counter to center
+  }
 `

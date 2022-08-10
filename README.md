@@ -29,11 +29,11 @@
   ✔️ Página de Checkout <br>
   ✔️ Página de Success <br>
   ✔️ Filtrar café por categoria <br>
-  ❌ Adicionar ao carrinho <br>
-  ❌ Adicionar uma quantidade específicas de itens no carrinho <br>
-  ❌ Aumentar ou remover a quantidade de itens no carrinho <br>
-  ❌ Exibir o total de itens no carrinho no Header <br>
-  ❌ Exibir o valor total da soma de itens no carrinho multiplicados pelo valor <br>
+  ✔️ Adicionar ao carrinho <br>
+  ✔️ Aumentar ou remover a quantidade de itens no carrinho <br>
+  ✔️ Exibir o total de itens no carrinho no Header <br>
+  ✔️ Exibir o valor total dos itens no carrinho <br>
+  ❌ Formulário de endereço
 </h4>
 
 ## 🛠 Tecnologias

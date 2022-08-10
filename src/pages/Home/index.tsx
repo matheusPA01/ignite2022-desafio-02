@@ -8,6 +8,7 @@ import { Coffee, Package, ShoppingCart, Timer, X } from "phosphor-react";
 import { CoffeeCard } from "../../components/CoffeeCard";
 import { coffees } from "../../assets/coffees/coffee";
 import { useEffect, useState } from "react";
+import { useCartContext } from "../../context/CartContext";
 
 interface CoffeesProps {
   image: string;
@@ -19,6 +20,8 @@ interface CoffeesProps {
 }
 
 export function Home() {
+
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeItemCart } = useCartContext()
 
   const [coffeeList, setCoffeeList] = useState<CoffeesProps[]>([])
 
