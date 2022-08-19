@@ -1,16 +1,18 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import { FormProvider, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { coffees } from "../../assets/coffees/coffee";
 import { CartItems } from "../../components/CartItems";
-import { CheckoutInput } from "../../components/CheckoutInput";
 import { useCartContext } from "../../context/CartContext";
-import {
-  CheckoutContainer, CheckoutForm, CheckoutFormAddress, CheckoutFormGroup,
-  CheckoutFormPayment, CheckoutFormAddressTitle, CheckoutSelectedCoffees,
-  CheckoutFormPaymentTitle, CheckoutCartContainer, CheckoutCartSummary, CheckoutCartButton
-} from "./styles";
+import { useCheckoutFormContext } from "../../context/FormContext";
+import { CheckoutForm } from "./components/CheckoutForm";
+import { CheckoutCartContainer, CheckoutCartSummary, CheckoutCartButton, CheckoutContainer, CheckoutSelectedCoffees } from "./styles";
 
 export function Checkout() {
-  const { cartItems } = useCartContext()
+  const { cartItems, resetCart } = useCartContext()
+  const { createNewOrder } = useCheckoutFormContext()
+
+  const newOrderForm = useForm()
+  const navigate = useNavigate()
 
   const sumCartTotalItems = cartItems.reduce((total, cartItem) => {
     const coffee = coffees.find(coffee => coffee.id === cartItem.id)
@@ -19,94 +21,25 @@ export function Checkout() {
 
   const totalSummaryValue = sumCartTotalItems + 3.5
 
+  const { handleSubmit } = newOrderForm
+
+  function handleCreateNewOrder(data: any) {
+    createNewOrder(data)
+
+    setTimeout(() => {
+      navigate('/success')
+    }, 2000)
+
+    resetCart()
+  }
+
   return (
     <CheckoutContainer>
-      <form>
+      <form onSubmit={handleSubmit(handleCreateNewOrder)} action="">
         <div>
-          <CheckoutForm>
-            <h3>Complete seu pedido</h3>
-
-            <CheckoutFormAddress>
-              <CheckoutFormAddressTitle>
-                <MapPinLine size={22} />
-                <div>
-                  <h3>Endereço de Entrega</h3>
-                  <p>Informe o endereço onde deseja receber seu pedido</p>
-                </div>
-              </CheckoutFormAddressTitle>
-
-              <CheckoutInput
-                placeholder="CEP"
-                inputType="text"
-                inputSize="small"
-              />
-              <CheckoutInput
-                placeholder="Rua"
-                inputType="text"
-                inputSize="big"
-              />
-
-              <CheckoutFormGroup>
-                <CheckoutInput
-                  placeholder="Número"
-                  inputType="number"
-                  inputSize="small"
-                />
-                <CheckoutInput
-                  placeholder="Complemento"
-                  inputType="text"
-                  inputSize="big"
-                />
-              </CheckoutFormGroup>
-
-              <CheckoutFormGroup>
-                <CheckoutInput
-                  placeholder="Bairro"
-                  inputType="text"
-                  inputSize="small"
-                />
-                <CheckoutInput
-                  placeholder="Cidade"
-                  inputType="text"
-                  inputSize="big"
-                />
-                <CheckoutInput
-                  placeholder="UF"
-                  inputType="text"
-                  inputSize="extraSmall"
-                />
-              </CheckoutFormGroup>
-
-            </CheckoutFormAddress>
-
-            <CheckoutFormPayment>
-              <CheckoutFormPaymentTitle>
-                <CurrencyDollar size={22} />
-                <div>
-                  <h3>Pagamento</h3>
-                  <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
-                </div>
-              </CheckoutFormPaymentTitle>
-
-              <div>
-                <button type="button">
-                  <span><CreditCard size={16} /></span>
-                  Cartão de Crédito
-                </button>
-
-                <button type="button">
-                  <span><Bank size={16} /></span>
-                  Cartão de Débito
-                </button>
-
-                <button type="button">
-                  <span><Money size={16} /></span>
-                  Dinheiro
-                </button>
-              </div>
-
-            </CheckoutFormPayment>
-          </CheckoutForm>
+          <FormProvider {...newOrderForm}>
+            <CheckoutForm />
+          </FormProvider>
 
           <CheckoutSelectedCoffees>
             <h3>Cafés Selecionados</h3>
@@ -132,7 +65,7 @@ export function Checkout() {
                   <strong>{`R$ ${totalSummaryValue.toFixed(2)}`}</strong>
                 </div>
 
-                <CheckoutCartButton>
+                <CheckoutCartButton type="submit">
                   Confirmar pedido
                 </CheckoutCartButton>
 

@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { coffees } from "../assets/coffees/coffee";
 
 interface CartContextProps {
   children: ReactNode
@@ -15,6 +14,7 @@ interface CartContextType {
   increaseCartQuantity: (id: string) => void
   decreaseCartQuantity: (id: string) => void
   removeItemCart: (id: string) => void
+  resetCart: () => void
   cartItemsQuantity: number
   cartItems: CartItem[]
 }
@@ -73,6 +73,10 @@ export function CartContext({ children }: CartContextProps) {
     })
   }
 
+  function resetCart() {
+    setCartItems([])
+  }
+
   return (
     <CoffeeCartContext.Provider
       value={{
@@ -80,6 +84,7 @@ export function CartContext({ children }: CartContextProps) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeItemCart,
+        resetCart,
         cartItemsQuantity,
         cartItems
       }}

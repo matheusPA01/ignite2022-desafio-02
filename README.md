@@ -31,9 +31,9 @@
   ✔️ Filtrar café por categoria <br>
   ✔️ Adicionar ao carrinho <br>
   ✔️ Aumentar ou remover a quantidade de itens no carrinho <br>
-  ✔️ Exibir o total de itens no carrinho no Header <br>
+  ✔️ Exibir o total de itens do carrinho no Header <br>
   ✔️ Exibir o valor total dos itens no carrinho <br>
-  ❌ Formulário de endereço
+  ✔️ Formulário de endereço
 </h4>
 
 ## 🛠 Tecnologias
@@ -44,6 +44,7 @@
   Styled Components <br>
   React Router DOM <br>
   Phosphoricons React <br>
+  React Hook Form <br>
 </h4>
 
 ## 🧭 Como usar

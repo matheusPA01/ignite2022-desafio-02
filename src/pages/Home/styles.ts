@@ -128,17 +128,4 @@ export const CoffeeTags = styled.div`
 export const Coffees = styled.div`
   display: flex;
   flex-wrap: wrap;
-
-  &::after {
-    content: "";
-    width: 34rem;
-  }
-
-  @media (min-width: 1500px) {
-    div {
-      &+div {
-        margin-right: 0.25rem;
-      }
-    }
-  }
 `

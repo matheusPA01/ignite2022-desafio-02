@@ -2,8 +2,11 @@ import { SuccessContainer, SuccessIconBackground, SuccessInfo, SuccessInfoContai
 
 import deliveryImg from '../../assets/delivery.png'
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import { useCheckoutFormContext } from "../../context/FormContext";
 
 export function Success() {
+  const { newOrderDelivery } = useCheckoutFormContext()
+
   return (
     <SuccessContainer>
       <h2>Uhu! Pedido confirmado</h2>
@@ -16,8 +19,8 @@ export function Success() {
               <MapPin weight={"fill"} />
             </SuccessIconBackground>
             <p>
-              Entrega em <strong>Rua João Daniel Martinelli, 102 </strong> <br />
-              Farrapos - Porto Alegre, RS
+              Entrega em <strong>{newOrderDelivery.rua}, {newOrderDelivery.numero} </strong> <br />
+              {newOrderDelivery.bairro} - {newOrderDelivery.cidade}, {newOrderDelivery.uf}
             </p>
           </div>
 
@@ -37,7 +40,7 @@ export function Success() {
             </SuccessIconBackground>
             <p>
               Pagamento na entrega <br />
-              <strong>Cartão de crédito</strong>
+              <strong>{newOrderDelivery.payment}</strong>
             </p>
           </div>
         </SuccessInfo>
